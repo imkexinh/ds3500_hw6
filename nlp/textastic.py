@@ -91,7 +91,7 @@ class Textastic:
         # plt.show()
         print(dict.keys())
 
-     def wordcount_sankey(self, word_list=None, k=5):
+    def wordcount_sankey(self, word_list=None, k=5):
         """
         Create a Sankey diagram showing the relationship between text sources and words.
         
