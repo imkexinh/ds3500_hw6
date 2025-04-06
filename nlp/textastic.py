@@ -21,6 +21,11 @@ class Textastic:
     def __init__(self):
         """ Contructor """
         self.data = defaultdict(dict)
+        self.stop_words = set()
+
+    def load_stop_words(self, stopfile):
+        with open(stopfile, 'r') as f:
+            self.stop_words = set(word.strip().lower() for word in f.readlines())
 
     def simple_text_parser(self, filename):
         """ For processing simple, unformatted text documents """
@@ -68,8 +73,6 @@ class Textastic:
             self.data[k][label] = v
 
 
-
-
     def compare_num_words(self, metric):
         """ A very simplistic visualization that creats a bar
         chart comparing the counted of selected metric in each file.
@@ -82,4 +85,5 @@ class Textastic:
         #     plt.bar(count, x=words)
         # plt.show()
         print(dict.keys())
+
 
